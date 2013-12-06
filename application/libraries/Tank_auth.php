@@ -150,6 +150,22 @@ class Tank_auth
 	}
 
 	/**
+	 * Returns current user object
+	 * (if exists else returns null)
+	 *
+	 * 
+	 * @return	object
+	 */
+	function get_current_user(){
+		if (!$this->is_logged_in()) {
+			return null;
+		} else {
+			$id  =  $this->get_user_id();
+			return $this->ci->users->get_user_by_id($id,true);
+		}
+	}
+
+	/**
 	 * Create new user on the site and return some data about it:
 	 * user_id, username, password, email, new_email_key (if any).
 	 *
