@@ -22,6 +22,8 @@ class Users extends CI_Model
 		$ci =& get_instance();
 		$this->table_name			= $ci->config->item('db_table_prefix', 'tank_auth').$this->table_name;
 		$this->profile_table_name	= $ci->config->item('db_table_prefix', 'tank_auth').$this->profile_table_name;
+
+		date_default_timezone_set("UTC");
 	}
 
 	/**
